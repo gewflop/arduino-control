@@ -1,0 +1,54 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Arduino: Компиляция",
+      "type": "process",
+      "command": "C:\\Program Files\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe",
+      "args": [
+        "compile",
+        "--fqbn",
+        "arduino:avr:uno",
+        "--warnings",
+        "all",
+        "--verbose",
+        "${fileDirname}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      }
+    },
+    {
+      "label": "Arduino: Прошивка (Upload COM7)",
+      "type": "process",
+      "command": "C:\\Program Files\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe",
+      "args": [
+        "upload",
+        "--fqbn",
+        "arduino:avr:uno",
+        "--port",
+        "COM7",
+        "--verbose",
+        "${fileDirname}"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      },
+      "dependsOn": "Arduino: Компиляция",
+      "problemMatcher": [],
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared",
+        "clear": false
+      }
+    }
+  ]
+}
